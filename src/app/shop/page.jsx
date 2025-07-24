@@ -4,6 +4,35 @@
 // import { Button } from "@/components/ui/button";
 import { Heart, Star, MessageSquare } from "lucide-react";
 import Link from "next/link";
+import React from "react"
+
+const merge = (...classes) => classes.filter(Boolean).join(" ")
+
+const Card = React.forwardRef(({ className, ...props }, ref) => (
+  <div ref={ref} className={merge("rounded-lg border bg-card text-card-foreground shadow-sm", className)} {...props} />
+))
+Card.displayName = "Card"
+
+const CardHeader = React.forwardRef(({ className, ...props }, ref) => (
+  <div ref={ref} className={merge("flex flex-col space-y-1.5 p-6", className)} {...props} />
+))
+CardHeader.displayName = "CardHeader"
+
+const CardTitle = React.forwardRef(({ className, ...props }, ref) => (
+  <h3 ref={ref} className={merge("text-2xl font-semibold leading-none tracking-tight", className)} {...props} />
+))
+CardTitle.displayName = "CardTitle"
+
+const CardContent = React.forwardRef(({ className, ...props }, ref) => (
+  <div ref={ref} className={merge("p-6 pt-0", className)} {...props} />
+))
+CardContent.displayName = "CardContent"
+
+const CardFooter = React.forwardRef(({ className, ...props }, ref) => (
+  <div ref={ref} className={merge("flex items-center p-6 pt-0", className)} {...props} />
+))
+CardFooter.displayName = "CardFooter"
+
 // ===== Button Component =====
 const Button = ({ className = '', children, ...props }) => {
   return (
@@ -15,43 +44,6 @@ const Button = ({ className = '', children, ...props }) => {
     </button>
   );
 };
-// ===== Card Component =====
-const Card = ({ className = '', children, ...props }) => {
-  return (
-    <div
-      className={`rounded-lg border border-gray-300 bg-white text-black shadow-sm ${className} hover:border-b-fuchsia-300`}
-      {...props}
-    >
-      {children}
-    </div>
-  );
-};
-
-// ===== CardContent Component =====
-const CardContent = ({ className = '', children, ...props }) => {
-  return (
-    <div className={`${className}`} {...props}>
-      {children}
-    </div>
-  );
-};
-const CardHeader = React.forwardRef(({ className, ...props }, ref) => (
-  <div ref={ref} className={merge("flex flex-col space-y-1.5 p-6", className)} {...props} />
-))
-CardHeader.displayName = "CardHeader"
-
-const CardTitle = React.forwardRef(({ className, ...props }, ref) => (
-  <h3 ref={ref} className={merge("text-2xl font-semibold leading-none tracking-tight", className)} {...props} />
-))
-CardTitle.displayName = "CardTitle"
-
-const CardFooter = React.forwardRef(({ className, ...props }, ref) => (
-  <div ref={ref} className={merge("flex items-center p-6 pt-0", className)} {...props} />
-))
-CardFooter.displayName = "CardFooter"
-
-
-
 
 const products = [
   {
@@ -95,7 +87,7 @@ const products = [
 const Shop = () => {
   return (
     <div className="min-h-screen bg-off-white">
-      <Navbar />
+      {/* <Navbar /> */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <h1 className="text-3xl font-bold text-deep-plum mb-8">Shop Thrifted Fashion</h1>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -135,7 +127,7 @@ const Shop = () => {
           ))}
         </div>
       </div>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 };

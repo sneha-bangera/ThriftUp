@@ -51,7 +51,7 @@ const HeroSec = () => {
       {/* Hero Content */}
       <div className="bg-yellow-grad text-off-white text-center py-12 px-4">
         <h1 className="text-4xl md:text-5xl font-bold mb-4 text-dark-pink">
-          <span className="text-hot-pink">ThriftUp:</span> Style Smart, Shop Smart
+          <span className="text-hot-pink notable-regular">THRIFT UP:</span> Style Smart, Shop Smart
         </h1>
         <p className="text-lg md:text-xl mb-6 text-black">
           Discover trendy pre-loved fashion at amazing prices!

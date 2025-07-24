@@ -1,26 +1,143 @@
 @import "tailwindcss";
+/* @import url('https://fonts.googleapis.com/css2?family=Notable&display=swap'); */
+/* ===== Custom Color Classes ===== */
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+.text-hot-pink {
+  color: #FF2D95;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+.bg-hot-pink {
+  background-color: #FF2D95;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+.text-butter-yellow {
+  color: #FFE675;
+}
+
+.bg-butter-yellow {
+  background-color: #FFE675;
+}
+
+.text-peach-pink {
+  color: #FFB3C6;
+}
+
+.text-dark-pink {
+  color: #ff85a4;
+}
+
+.bg-peach-pink {
+  background-color: #FFB3C6;
+}
+
+.text-lilac-mist {
+  color: #E6C9FF;
+}
+
+.bg-lilac-mist {
+  background-color: #E6C9FF;
+}
+
+.text-deep-plum {
+  color: #5D1049;
+}
+
+.bg-deep-plum {
+  background-color: #5D1049;
+}
+
+.text-off-white {
+  color: #FFF9F3;
+}
+
+.bg-off-white {
+  background-color: #FFF9F3;
+}
+
+.notable-regular {
+  font-family: "Notable", sans-serif;
+  font-weight:600;
+  font-style: normal;
+}
+
+
+/* ===== Gradient Background ===== */
+
+.bg-cotton-candy-gradient {
+  background: linear-gradient(135deg, #FFB3C6, #FF2D95);
+}
+.bg-yellow-grad{
+  background: linear-gradient(135deg, #fffbe7, #ffee00);
+}
+
+/* global.css */
+.group:hover .card-hover-bg {
+  background: linear-gradient(135deg, #ffc4d3, #ffffff);
+  transition: background 0.3s ease;
+}
+
+
+/* ===== Button Styles ===== */
+
+.btn-primary {
+  background: linear-gradient(135deg, #FFB3C6, #FF2D95);
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 9999px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn-secondary {
+  /* background: linear-gradient(135deg, #fffbe7, rgb(255, 238, 0)); */
+  color: #ff85a4;
+  border: 2px solid #FF2D95;
+  cursor: pointer;
+  padding: 0.75rem 1.5rem;
+  border-radius: 9999px;
+  font-weight: bold;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn-primary:hover, .btn-secondary:hover{
+  transform: scale(1.05);
+  box-shadow: 0 4px 10px rgba(255, 45, 149, 0.4);
+}
+/* .btn-secondary:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 10px rgb(255, 250, 180);
+} */
+
+ .input-field{
+    padding: 15px;
+    margin: 10px;
+    background-color: transparent;
+    border: 2px solid #bbb;
+    color:#bbb;
+    border-radius: 5px;
+    font-size: 15px;
+    font-weight: bold;
   }
+ .or {
+    color: #bbb;
+  }
+  .link {
+    text-decoration: none;
+    font-weight: 500;
+    color: #7d7c7c;
+  }
+  .link:hover {
+    color: rgb(61, 61, 61);
+  }
+
+/* Example Badge */
+.badge {
+  background-color: #ffd000;
+  color: #5D1049;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-weight: 600;
+  font-size: 0.875rem;
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
-}
