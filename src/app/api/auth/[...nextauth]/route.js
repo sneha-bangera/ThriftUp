@@ -12,30 +12,28 @@ const handler = NextAuth({
       id: "credentials",
       name: "Credentials",
       async authorize(credentials) {
-        //Check if the user exists.
         await connect();
 
         try {
-          const user = await User.findOne({
-            email: credentials.email,
-          });
+          const user = await User.findOne({ email: credentials.email });
 
-          if (user) {
-            const isPasswordCorrect = await bcrypt.compare(
-              credentials.password,
-              user.password
-            );
+          if (!user) throw new Error("User not found!");
 
-            if (isPasswordCorrect) {
-              return user;
-            } else {
-              throw new Error("Wrong Credentials!");
-            }
-          } else {
-            throw new Error("User not found!");
-          }
+          const isPasswordCorrect = await bcrypt.compare(
+            credentials.password,
+            user.password
+          );
+
+          if (!isPasswordCorrect) throw new Error("Wrong Credentials!");
+
+          return {
+            id: user._id,
+            name: user.username,
+            email: user.email,
+            image: user.image || null,
+          };
         } catch (err) {
-          throw new Error(err);
+          throw new Error(err.message);
         }
       },
     }),
@@ -48,10 +46,34 @@ const handler = NextAuth({
       clientSecret: process.env.GOOGLE_CLIENT_SECRET,
     }),
   ],
+
+  callbacks: {
+    async jwt({ token, user }) {
+      if (user) {
+        token.id = user.id;
+        token.name = user.name;
+        token.email = user.email;
+        token.picture = user.image || null;
+      }
+      return token;
+    },
+    async session({ session, token }) {
+      if (token) {
+        session.user.id = token.id;
+        session.user.name = token.name;
+        session.user.email = token.email;
+        session.user.image = token.picture;
+      }
+      return session;
+    },
+  },
+
   pages: {
     error: "/dashboard/login",
   },
-
+  session: {
+    strategy: "jwt",
+  },
 });
 
 export { handler as GET, handler as POST };

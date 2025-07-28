@@ -3,6 +3,10 @@ import connect from "@/utils/db";
 import bcrypt from "bcryptjs"
 import { NextResponse } from "next/server";
 
+export const GET = async (request) => {
+    return new NextResponse("it works",{status: 200});
+}
+
 export const POST = async (request) => {
     const { name, email, password } = await request.json();
   
