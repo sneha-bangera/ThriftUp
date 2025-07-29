@@ -41,7 +41,7 @@ const Login = ({ url }) => {
   };
 
   return (
-    <div className='flex flex-col items-center justify-center mt-10'>
+    <div className='flex flex-col items-center justify-center mt-10 mb-20'>
       <h1 className="text-hot-pink font-bold text-3xl">{success ? success : "Welcome Back"}</h1>
       <h2 >Please sign in to see the dashboard.</h2>
 

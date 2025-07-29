@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import Link from 'next/link';
 import { Shirt, ShoppingBag, Layers, Footprints } from 'lucide-react';
 
 const categories = [
@@ -53,19 +54,20 @@ const CardContent = ({ className = '', children, ...props }) => {
 };
 
 // ===== Categories Section =====
-const Categories = () => {
+const Category = () => {
   return (
     <section className="py-16 bg-off-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-3xl font-bold text-deep-plum mb-8 text-center">
-          Shop by Category
+        <h2 className="text-3xl text-deep-plum mb-8 text-center font-bold">
+          SHOP BT CATEGORY
         </h2>
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
           {categories.map((category) => (
-            <Card
-              key={category.name}
-              className="group cursor-pointer hover:shadow-lg transition-shadow"
-            >
+          <Link
+            href={`/category/${category.name.toLowerCase()}`}
+            key={category.name}
+          >
+            <Card className="group cursor-pointer hover:shadow-lg transition-shadow">
               <CardContent className="p-0">
                 <div className="relative w-full">
                   <img
@@ -81,11 +83,13 @@ const Categories = () => {
                 </div>
               </CardContent>
             </Card>
+          </Link>
           ))}
         </div>
+
       </div>
     </section>
   );
 };
 
-export default Categories;
+export default Category;

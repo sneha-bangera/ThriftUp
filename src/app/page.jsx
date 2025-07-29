@@ -1,6 +1,6 @@
-import Categories from "@/components/Categories";
 import { Community } from "@/components/Community";
 import { Contact } from "@/components/Contact";
+import Category from "@/components/Category";
 import HeroSec from "@/components/HeroSec";
 import Offers from "@/components/Offers";
 
@@ -8,7 +8,7 @@ export default function Home() {
   return (
     <main>
       <HeroSec />
-      <Categories/>
+      <Category/>
       <Offers/>
       <Community/>
       <Contact/>

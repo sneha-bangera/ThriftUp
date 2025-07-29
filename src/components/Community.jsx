@@ -2,6 +2,7 @@
 import { MessageSquare, Heart, Users } from "lucide-react"
 // import { Button } from "./ui/button"
 import React from "react"
+import Link from "next/link";
 
 // ===== Badge Component =====
 const Badge = ({ className = '', children, ...props }) => {
@@ -62,7 +63,7 @@ const merge = (...classes) => classes.filter(Boolean).join(" ")
 
 export const Community = () => {
   return (
-    <section className="py-20 bg-gradient-to-b from-lilac-mist/30 to-butter-yellow/20" id="community">
+    <section className="py-20 bg-yellow-grad" id="community">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-deep-plum mb-4">
@@ -105,10 +106,12 @@ export const Community = () => {
         </div>
 
         <div className="flex justify-center text-center mt-12">
-          <Button className="text-white bg-cotton-candy-gradient rounded-2xl p-2.5 hover:opacity-90 cursor-pointer flex justify-center items-center shadow-lg transform hover:scale-105 transition-all duration-300">
-            <Users className="mr-2 h-4 w-4 font-bold" />
-            Explore All Discussions
-          </Button>
+          <Link href='/community'>
+            <Button className="text-white bg-cotton-candy-gradient rounded-2xl p-2.5 hover:opacity-90 cursor-pointer flex justify-center items-center shadow-lg transform hover:scale-105 transition-all duration-300">
+              <Users className="mr-2 h-4 w-4 font-bold" />
+              Explore All Discussions
+            </Button>
+          </Link>
         </div>
       </div>
     </section>

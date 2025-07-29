@@ -1,24 +1,35 @@
 import mongoose from "mongoose";
 
-const { Schema } = mongoose;
-
-const productSchema = new Schema(
-  {
-    name: {
-      type: String,
-      unique: true,
-      required: true,
-    },
-    price: {
-      type: Number,
-      required: true,
-    },
-    rating: {
-      type: Number,
-      required: true,
-    },
+const ProductSchema = new mongoose.Schema({
+  name: {
+    type: String,
+    required: true,
   },
-  { timestamps: true }
-);
+  price: {
+    type: String,
+    required: true,
+  },
+  image: {
+    type: String,
+    required: true,
+  },
+  category: {
+    type: String,
+    default: "",
+  },
+  description: {
+    type: String,
+    default: "",
+  },
+  size: {
+    type: String,
+    default: "",
+  },
+  userEmail: {
+    type: String,
+    required: true,
+  },
+}, { timestamps: true });
 
-export default mongoose.models.Product || mongoose.model("Product", productSchema);
+// Avoid model overwrite issues
+export default mongoose.models.Product || mongoose.model("Product", ProductSchema);

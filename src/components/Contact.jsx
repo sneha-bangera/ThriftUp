@@ -26,7 +26,7 @@ export const Contact = () => {
           </p>
         </div>
 
-        <div className="bg-gradient-to-br from-peach-pink/20 to-lilac-mist/30 p-8 rounded-2xl shadow-lg">
+        <div className="bg-yellow-grad p-8 rounded-2xl shadow-lg">
           <form className="space-y-6">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="space-y-2">

@@ -38,7 +38,7 @@ const Register = () => {
 
 
   return (
-    <div className='flex flex-col justify-center items-center align-middle content-center text-center mt-10'>
+    <div className='flex flex-col justify-center items-center align-middle content-center text-center mt-10 mb-20'>
       <h1 className="text-hot-pink font-bold text-3xl">Create an Account</h1>
       <h2>Please sign up to see the dashboard.</h2>
       <form onSubmit={handleSubmit} className='flex flex-col w-2xs'>

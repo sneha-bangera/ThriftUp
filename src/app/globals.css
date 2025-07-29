@@ -2,6 +2,17 @@
 /* @import url('https://fonts.googleapis.com/css2?family=Notable&display=swap'); */
 /* ===== Custom Color Classes ===== */
 
+.custom-heading {
+  font-family: var(--font-notable);
+  text-shadow: black 3px 3px 3px;
+  /* text-shadow: 20px black; */
+}
+.font-normal{
+  font-family: var(--font-geist-sans);
+}
+.font-head{
+  font-family: var(--font-homemade-apple);
+}
 .text-hot-pink {
   color: #FF2D95;
 }
@@ -16,6 +27,10 @@
 
 .bg-butter-yellow {
   background-color: #FFE675;
+}
+
+.fill-butter-yellow {
+  fill: #FFE675;
 }
 
 .text-peach-pink {
@@ -60,14 +75,22 @@
   font-style: normal;
 }
 
-
+.border-peach-pink{
+  border-color: #FFB3C6;
+  /* border: 2px solid #FFB3C6; */
+}
 /* ===== Gradient Background ===== */
 
 .bg-cotton-candy-gradient {
   background: linear-gradient(135deg, #FFB3C6, #FF2D95);
 }
+.bg-light-peach-gradient {
+  background: linear-gradient(135deg, #FFB3C6, #ffdee6, #FFB3C6);
+}
 .bg-yellow-grad{
-  background: linear-gradient(135deg, #fffbe7, #ffee00);
+  /* background: linear-gradient(135deg, #ffee00,#fffbe7, #fff674, #fffbe7, #ffee00); */
+  /* background-image: url("../../public/cat_bg.jpg"); */
+  background: rgb(251, 221, 223);
 }
 
 /* global.css */
