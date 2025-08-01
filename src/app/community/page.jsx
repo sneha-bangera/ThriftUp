@@ -263,7 +263,7 @@ export default function CommunityPage() {
               <h3 className="text-xl font-semibold text-deep-plum">{post.title}</h3>
 
             <p className="text-sm text-deep-plum/70">{post.content}</p>
-            <p className="text-xs text-peach-pink mt-2">by {post.authorEmail}</p>
+            <p className="text-xs text-peach-pink mt-2">by {post.authorEmail || "anonymous"}</p>
             
             <div className="mt-2 flex gap-4">
               <button onClick={() => handleLike(post._id)} className="text-hot-pink">

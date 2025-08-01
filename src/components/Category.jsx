@@ -2,33 +2,34 @@
 
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { Shirt, ShoppingBag, Layers, Footprints } from 'lucide-react';
 
 const categories = [
   {
     name: 'Dresses',
     icon: Layers,
-    image: 'https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=500&q=80',
+    image: '/cat_jeans.png', // Use public folder image with root-relative path
   },
   {
     name: 'Tops',
     icon: Shirt,
-    image: 'https://images.unsplash.com/photo-1434389677669-e08b4cac3105?w=500&q=80',
+    image: '/cat_top.png',
   },
   {
-    name: 'Accessories',
+    name: 'Bottoms',
     icon: ShoppingBag,
-    image: 'https://images.unsplash.com/photo-1603561591411-77c5c797f5aa?w=500&q=80',
+    image: 'cat_bottom.png',
   },
   {
     name: 'Footwear',
     icon: Footprints,
-    image: 'https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=500&q=80',
+    image: 'cat_shoe.png',
   },
   {
     name: 'Bags',
     icon: ShoppingBag,
-    image: 'https://images.unsplash.com/photo-1566150905458-1bf1fc113f0d?w=500&q=80',
+    image: 'cat_bag.png',
   },
 ];
 
@@ -64,16 +65,16 @@ const Category = () => {
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
           {categories.map((category) => (
           <Link
-            href={`/category/${category.name.toLowerCase()}`}
+            href={'/shop?category=' + category.name.toLowerCase()}
             key={category.name}
           >
-            <Card className="group cursor-pointer hover:shadow-lg transition-shadow">
+            <Card className="group cursor-pointer ">
               <CardContent className="p-0">
                 <div className="relative w-full">
                   <img
                     src={category.image}
                     alt={category.name}
-                    className="w-full h-60 object-cover rounded-t-lg"
+                    className="w-full h-70 object-cover rounded-t-lg"
                   />
                   <div className="absolute inset-0 bg-black/20 group-hover:bg-black/30 transition-colors rounded-t-lg" />
                 </div>

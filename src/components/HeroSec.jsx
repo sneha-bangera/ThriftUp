@@ -52,7 +52,7 @@ const HeroSec = () => {
       {/* Hero Content */}
       <div className="bg-yellow-grad text-off-white text-center py-12 px-4">
         <h2 className="text-4xl md:text-5xl font-head mb-4 text-deep-plum">
-           Style Smart, Shop Smart
+           Style Smart , Shop Smart
         </h2>
         <p className="text-lg md:text-xl mb-6 text-black">
           Discover trendy pre-loved fashion at amazing prices!
