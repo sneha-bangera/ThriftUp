@@ -43,7 +43,7 @@ const Dashboard = () => {
    
 
   useEffect(() => {
-    fetch('/api/orders')
+    fetch(`/api/orders?userEmail=${user.email}`)
       .then((res) => res.json())
       .then((data) => setOrders(data.orders || []));
   }, []);
