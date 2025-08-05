@@ -14,7 +14,7 @@ const Dashboard = () => {
 
   if (status === "loading") return <p>Loading...</p>;
   // if (!session) return <p>Please login</p>;
-  if (status === "unauthenticated") return <p>Please login</p>;
+  // if (status === "unauthenticated") return <p>Please login</p>;
 
 
   const [cartItems, setCartItems] = useState([]);
@@ -33,10 +33,6 @@ const Dashboard = () => {
     }
   }, [status, router]);
 
-  // if (status === "loading" || status === "unauthenticated") {
-  //   return null;
-  // }
-  // const user= session?.user;  
   
    useEffect(() => {
     if (session?.user?.email) {
