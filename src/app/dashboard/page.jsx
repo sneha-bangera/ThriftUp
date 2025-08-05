@@ -12,10 +12,8 @@ const Dashboard = () => {
   const { data: session, status } = useSession(); // ✅ declared first
   const router = useRouter();
 
-  if (status === "loading") return <p>Loading...</p>;
-  // if (!session) return <p>Please login</p>;
-  // if (status === "unauthenticated") return <p>Please login</p>;
 
+  const user = session?.user;
 
   const [cartItems, setCartItems] = useState([]);
   const [total, setTotal] = useState(0);
@@ -26,6 +24,7 @@ const Dashboard = () => {
   const calculateTotal = (items) => {
   return items.reduce((total, item) => total + parseFloat(item.price), 0).toFixed(2);
 };
+
 
   useEffect(() => {
     if (status === "unauthenticated") {
@@ -44,10 +43,16 @@ const Dashboard = () => {
    
 
   useEffect(() => {
+    if(session?.user?.email) {
     fetch(`/api/orders?userEmail=${user.email}`)
       .then((res) => res.json())
       .then((data) => setOrders(data.orders || []));
+    }
   }, []);
+
+  
+    if (status === "loading") return <p>Loading...</p>;
+
 
 
   const fetchCart = async () => {
@@ -168,17 +173,6 @@ const handleSuccessPayment = async () => {
   }
 };
 
-
-
-
-
-  const user = session?.user;
-
- 
-
-  // if (!session) {
-  //   return <p className="p-10 text-center">Please log in to view your dashboard.</p>;
-  // }
 
   return (
     <div className="p-10 space-y-12">
