@@ -12,6 +12,9 @@ const Dashboard = () => {
   const { data: session, status } = useSession(); // ✅ declared first
   const router = useRouter();
 
+  if (status === "loading") return <p>Loading...</p>;
+  if (!session) return <p>Please login</p>;
+
   const [cartItems, setCartItems] = useState([]);
   const [total, setTotal] = useState(0);
   const [myListings, setMyListings] = useState([]);
