@@ -8,14 +8,14 @@ export const GET = async (request) => {
 }
 
 export const POST = async (request) => {
-    const { name, email, password } = await request.json();
+    const { username, email, password } = await request.json();
   
     await connect();
   
     const hashedPassword = await bcrypt.hash(password, 5);
   
     const newUser = new User({
-      name,
+      name: username,
       email,
       password: hashedPassword,
     });
