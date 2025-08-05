@@ -13,7 +13,9 @@ const Dashboard = () => {
   const router = useRouter();
 
   if (status === "loading") return <p>Loading...</p>;
-  if (!session) return <p>Please login</p>;
+  // if (!session) return <p>Please login</p>;
+  if (status === "unauthenticated") return <p>Please login</p>;
+
 
   const [cartItems, setCartItems] = useState([]);
   const [total, setTotal] = useState(0);
