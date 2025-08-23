@@ -1,5 +1,4 @@
 'use client';
-
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -9,7 +8,7 @@ const categories = [
   {
     name: 'Dresses',
     icon: Layers,
-    image: '/cat_jeans.png', // Use public folder image with root-relative path
+    image: '/cat_jeans.png', 
   },
   {
     name: 'Tops',
@@ -33,19 +32,14 @@ const categories = [
   },
 ];
 
-// ===== Card Component =====
 const Card = ({ className = '', children, ...props }) => {
   return (
     <div
-      className={`rounded-lg border border-gray-300 bg-white text-black shadow-sm ${className} hover:border-b-fuchsia-300`}
-      {...props}
-    >
+      className={`rounded-lg border border-gray-300 bg-white text-black shadow-sm ${className} hover:border-b-fuchsia-300`}{...props}>
       {children}
     </div>
   );
 };
-
-// ===== CardContent Component =====
 const CardContent = ({ className = '', children, ...props }) => {
   return (
     <div className={`${className}`} {...props}>
@@ -54,7 +48,6 @@ const CardContent = ({ className = '', children, ...props }) => {
   );
 };
 
-// ===== Categories Section =====
 const Category = () => {
   return (
     <section className="py-16 bg-off-white">

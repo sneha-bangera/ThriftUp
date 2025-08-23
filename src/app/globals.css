@@ -1,6 +1,4 @@
 @import "tailwindcss";
-/* @import url('https://fonts.googleapis.com/css2?family=Notable&display=swap'); */
-/* ===== Custom Color Classes ===== */
 
 .custom-heading {
   font-family: var(--font-notable);
@@ -11,10 +9,12 @@
   font-family: var(--font-geist-sans);
 }
 .font-head{
-  font-family: var(--font-homemade-apple);
+  font-family: var(--font-ms-madi);
+  font-weight: 600;
+  font-size: 5rem;
 }
 .text-hot-pink {
-  color: #FF2D95;
+  color: #FF2D95; 
 }
 
 .bg-hot-pink {
@@ -79,7 +79,7 @@
   border-color: #FFB3C6;
   /* border: 2px solid #FFB3C6; */
 }
-/* ===== Gradient Background ===== */
+
 
 .bg-cotton-candy-gradient {
   background: linear-gradient(135deg, #FFB3C6, #FF2D95);
@@ -93,14 +93,12 @@
   background: rgb(251, 221, 223);
 }
 
-/* global.css */
 .group:hover .card-hover-bg {
   background: linear-gradient(135deg, #ffc4d3, #ffffff);
   transition: background 0.3s ease;
 }
 
 
-/* ===== Button Styles ===== */
 
 .btn-primary {
   background: linear-gradient(135deg, #FFB3C6, #FF2D95);
@@ -113,13 +111,13 @@
 }
 
 .btn-secondary {
-  /* background: linear-gradient(135deg, #fffbe7, rgb(255, 238, 0)); */
   color: #ff85a4;
   border: 2px solid #FF2D95;
   cursor: pointer;
   padding: 0.75rem 1.5rem;
   border-radius: 9999px;
   font-weight: bold;
+  font-size: 0.8rem;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
@@ -154,12 +152,11 @@
     color: rgb(61, 61, 61);
   }
 
-/* Example Badge */
 .badge {
-  background-color: #ffd000;
-  color: #5D1049;
+  background-color: #5D1049;
+  color: white;
   padding: 0.25rem 0.75rem;
-  border-radius: 9999px;
+  border-radius: 50%;
   font-weight: 600;
   font-size: 0.875rem;
 }

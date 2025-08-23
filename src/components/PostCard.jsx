@@ -3,29 +3,6 @@
 import { useState, useEffect } from 'react';
 import { Heart, Trash2, MessageSquare } from 'lucide-react';
 
-// ===== Button Component =====
-const Button = ({ className = '', children, ...props }) => {
-  return (
-    <button
-      className={`text-white font-bold cursor-pointer hover:text-deep-plum hover:bg-peach-pink p-0 flex items-center transition-colors ${className}`}
-      {...props}
-    >
-      {children}
-    </button>
-  );
-};
-// ===== Badge Component =====
-const Badge = ({ className = '', children, ...props }) => {
-  return (
-    <span
-      className={`inline-block px-3 py-1 text-sm font-semibold rounded-full ${className}`}
-      {...props}
-    >
-      {children}
-    </span>
-  );
-};
-
 export default function PostCard({ post, currentUserEmail, onDelete }) {
   const [liked, setLiked] = useState(false);
   const [likes, setLikes] = useState(post.likes || []);

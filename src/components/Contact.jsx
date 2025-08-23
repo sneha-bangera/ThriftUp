@@ -1,7 +1,5 @@
 import React from "react"
-// import { Button } from "./ui/button"
 
-// ===== Button Component =====
 const Button = ({ className = '', children, ...props }) => {
   return (
     <button
@@ -35,7 +33,7 @@ export const Contact = () => {
                   type="text"
                   id="name"
                   placeholder="Your name"
-                  className="focus:border-hot-pink focus:ring-hot-pink bg-off-white"
+                  className="border-peach-pink bg-off-white mt-2"
                 />
               </div>
               <div className="space-y-2">
@@ -44,7 +42,7 @@ export const Contact = () => {
                   type="email"
                   id="email"
                   placeholder="your.email@example.com"
-                  className="focus:border-hot-pink focus:ring-hot-pink bg-off-white"
+                  className="border-peach-pink focus:ring-hot-pink bg-off-white mt-2"
                 />
               </div>
             </div>
@@ -54,7 +52,7 @@ export const Contact = () => {
               <textarea
                 id="message"
                 rows={4}
-                className="w-full rounded-md border border-input bg-off-white px-3 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-hot-pink focus-visible:ring-offset-2 text-deep-plum"
+                className="w-full rounded-md border-peach-pink border bg-off-white px-3 py-2 text-sm text-deep-plum mt-2"
                 placeholder="Tell us what you're thinking..."
               ></textarea>
             </div>
@@ -71,7 +69,7 @@ export const Contact = () => {
   )
 }
 
-// Input Component (pure JSX)
+
 const Input = React.forwardRef(({ className = "", type = "text", ...props }, ref) => (
   <input
     type={type}
@@ -85,7 +83,6 @@ const Input = React.forwardRef(({ className = "", type = "text", ...props }, ref
 ))
 Input.displayName = "Input"
 
-// Label Component (pure JSX)
 const Label = React.forwardRef(({ className = "", ...props }, ref) => (
   <label
     ref={ref}

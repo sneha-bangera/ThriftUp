@@ -1,10 +1,7 @@
-// import { Badge } from "./ui/badge"
 import { MessageSquare, Heart, Users } from "lucide-react"
-// import { Button } from "./ui/button"
 import React from "react"
 import Link from "next/link";
 
-// ===== Badge Component =====
 const Badge = ({ className = '', children, ...props }) => {
   return (
     <span
@@ -16,7 +13,6 @@ const Badge = ({ className = '', children, ...props }) => {
   );
 };
 
-// ===== Button Component =====
 const Button = ({ className = '', children, ...props }) => {
   return (
     <button
@@ -89,12 +85,8 @@ export const Community = () => {
               <CardContent>
                 <div className="flex items-center justify-between text-sm text-deep-plum/60">
                   <div className="flex items-center">
+                    <Heart className="h-4 w-4 mr-5 text-hot-pink" />
                     <MessageSquare className="h-4 w-4 mr-1 text-hot-pink" />
-                    <span>{topic.comments} comments</span>
-                  </div>
-                  <div className="flex items-center">
-                    <Heart className="h-4 w-4 mr-1 text-hot-pink" />
-                    <span>{topic.likes} likes</span>
                   </div>
                 </div>
               </CardContent>
@@ -118,7 +110,6 @@ export const Community = () => {
   )
 }
 
-// Card Components (Pure JS with React.forwardRef)
 
 const Card = React.forwardRef(({ className, ...props }, ref) => (
   <div ref={ref} className={merge("rounded-lg border bg-card text-card-foreground shadow-sm", className)} {...props} />

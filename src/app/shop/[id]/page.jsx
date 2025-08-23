@@ -5,8 +5,6 @@ import { useParams } from "next/navigation"
 import { Heart, Star, ShoppingCart, MessageSquare, Share2 } from "lucide-react"
 
 const merge = (...classes) => classes.filter(Boolean).join(" ")
-
-// ===== Badge Component =====
 const Badge = ({ className = '', children, ...props }) => {
   return (
     <span
@@ -15,10 +13,7 @@ const Badge = ({ className = '', children, ...props }) => {
     >
       {children}
     </span>
-  );
-};
-
-// ===== Button Component =====
+  )};
 const Button = ({ className = '', children, ...props }) => {
   return (
     <button
@@ -27,9 +22,7 @@ const Button = ({ className = '', children, ...props }) => {
     >
       {children}
     </button>
-  );
-};
-
+  )};
 const Card = React.forwardRef(({ className, ...props }, ref) => (
   <div ref={ref} className={merge("rounded-lg border bg-card text-card-foreground shadow-sm", className)} {...props} />
 ))
@@ -45,8 +38,6 @@ const ProductDetail = () => {
   const { id } = useParams()
   const [shop, setShop] = useState(null)
   const [loading, setLoading] = useState(true)
-  // const [selectedSize, setSelectedSize] = useState("M")
-  // const [selectedColor, setSelectedColor] = useState("Blue")
   const [quantity, setQuantity] = useState(1)
 
 
@@ -93,7 +84,7 @@ const ProductDetail = () => {
       id: 4,
       name: "Pleated Midi Skirt",
       price: "$30",
-      image: "https://images.unsplash.com/photo-1583496661160-fb5886a13d27?w=200&h=250&fit=crop"
+      image: "https://plus.unsplash.com/premium_photo-1671379102281-7225f3d3d97d?q=80&w=687&auto=format&fit=crop"
     }
   ]
 
@@ -105,7 +96,6 @@ if (!shop) return <div className="text-center py-16">Product not found</div>;
     <div className="min-h-screen bg-off-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          {/* Product Images */}
           <div className="space-y-4">
             <div className="aspect-square overflow-hidden rounded-lg">
               <img 
@@ -114,42 +104,13 @@ if (!shop) return <div className="text-center py-16">Product not found</div>;
                 className="w-full h-full object-cover"
               />
             </div>
-            {/* <div className="grid grid-cols-3 gap-4">
-              {shop.images.slice(1).map((image, index) => (
-                <div key={index} className="aspect-square overflow-hidden rounded-lg cursor-pointer">
-                  <img 
-                    src={image} 
-                    alt={`${shop.name} ${index + 2}`}
-                    className="w-full h-full object-cover hover:opacity-80 transition-opacity"
-                  />
-                </div>
-              ))}
-            </div> */}
           </div>
 
-          {/* Product Info */}
           <div className="space-y-6">
             <div>
               <h1 className="text-3xl font-bold text-deep-plum mb-2">{shop.name}</h1>
               <div className="flex items-center gap-4 mb-4">
-                {/* <div className="flex items-center gap-1">
-                  {[...Array(5)].map((_, i) => (
-                    <Star 
-                      key={i} 
-                      className={`h-5 w-5 ${i < Math.floor(shop.rating) ? 'fill-butter-yellow text-butter-yellow' : 'text-gray-300'}`} 
-                    />
-                  ))}
-                  <span className="text-gray-600 ml-2">({shop.totalReviews} reviews)</span>
-                </div> */}
-                {/* <div className="flex items-center gap-1 text-gray-600">
-                  <Heart className="h-4 w-4" />
-                  <span>likes</span>
-                </div> */}
-              </div>
-              <div className="flex items-center gap-4 mb-4">
                 <span className="text-3xl font-bold text-hot-pink">${shop.price}</span>
-                {/* <span className="text-lg text-gray-500 line-through">{shop.originalPrice}</span> */}
-                {/* <Badge className="cotton-candy-gradient text-white">47% OFF</Badge> */}
               </div>
               <Badge className="bg-green-100 text-green-800">{shop.category || "All"}</Badge>
             </div>
@@ -159,44 +120,15 @@ if (!shop) return <div className="text-center py-16">Product not found</div>;
               <p className="text-gray-600">{shop.description}</p>
             </div>
 
-            {/* Size Selection */}
             <div>
               <h3 className="text-lg font-semibold text-deep-plum mb-3">Size</h3>
               <div className="flex gap-2">
-                {/* {shop.sizes.map((size) => (
-                  <Button
-                    key={size}
-                    variant={selectedSize === size ? "default" : "outline"}
-                    className={selectedSize === size ? "bg-peach-pink py-2 px-3 rounded-md text-deep-plum" : "px-3 py-2 border-peach-pink text-deep-plum hover:bg-peach-pink"}
-                    onClick={() => setSelectedSize(size)}
-                  >
-                    {size}
-                  </Button>
-                ))} */}
                 <Button className="bg-peach-pink py-2 px-3 rounded-md text-deep-plum">
                   {shop.size || "M"}
                 </Button>
               </div>
             </div>
 
-            {/* Color Selection */}
-            {/* <div>
-              <h3 className="text-lg font-semibold text-deep-plum mb-3">Color</h3>
-              <div className="flex gap-2">
-                {shop.colors.map((color) => (
-                  <Button
-                    key={color}
-                    variant={selectedColor === color ? "default" : "outline"}
-                    className={selectedColor === color ? "bg-peach-pink rounded-2xl text-deep-plum p-2.5" : "p-2.5 border-peach-pink text-deep-plum hover:bg-peach-pink"}
-                    onClick={() => setSelectedColor(color)}
-                  >
-                    {color}
-                  </Button>
-                ))}
-              </div>
-            </div> */}
-
-            {/* Quantity */}
             <div>
               <h3 className="text-lg font-semibold text-deep-plum mb-3">Quantity</h3>
               <div className="flex items-center gap-3">
@@ -218,39 +150,38 @@ if (!shop) return <div className="text-center py-16">Product not found</div>;
               </div>
             </div>
 
-            {/* Action Buttons */}
             <div className="flex gap-4 pt-4">
               <Button className="btn-primary"
-  onClick={async (e) => {
-    e.preventDefault(); // prevent navigation if inside a <Link>
-    try {
-      const res = await fetch('/api/cart', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          productId: shop._id,
-          name: shop.name,
-          category: shop.category || 'All',
-          size: shop.size,
-          price: parseFloat(shop.price),
-          image: shop.image
-        })
-      });
+                onClick={async (e) => {
+                  e.preventDefault();
+                  try {
+                    const res = await fetch('/api/cart', {
+                      method: 'POST',
+                      headers: { 'Content-Type': 'application/json' },
+                      body: JSON.stringify({
+                        productId: shop._id,
+                        name: shop.name,
+                        category: shop.category || 'All',
+                        size: shop.size,
+                        price: parseFloat(shop.price),
+                        image: shop.image
+                      })
+                    });
 
-      const result = await res.json();
-      if (result.success) {
-        alert("Added to cart!");
-      } else {
-        alert(result.error || "Failed to add to cart");
-      }
-    } catch (error) {
-      console.error("Error adding to cart:", error);
-    }
-  }}
->
-  <ShoppingCart className="mr-2 h-5 w-5" />
-  Add to Cart
-</Button>
+                    const result = await res.json();
+                    if (result.success) {
+                      alert("Added to cart!");
+                    } else {
+                      alert(result.error || "Failed to add to cart");
+                    }
+                  } catch (error) {
+                    console.error("Error adding to cart:", error);
+                  }
+                }}
+                >
+                <ShoppingCart className="mr-2 h-5 w-5" />
+                Add to Cart
+              </Button>
 
               <Button variant="outline" className="border-hot-pink text-hot-pink hover:bg-peach-pink">
                 <Heart className="h-5 w-5" />
@@ -260,44 +191,17 @@ if (!shop) return <div className="text-center py-16">Product not found</div>;
           </div>
         </div>
 
-        {/* Reviews Section */}
-        {/* <div className="mt-16">
-          <h2 className="text-2xl font-bold text-deep-plum mb-8">Customer Reviews</h2>
-          <div className="space-y-6">
-            {shop.reviews.map((review) => (
-              <Card key={review.id} className="p-6">
-                <CardContent className="p-0">
-                  <div className="flex items-start justify-between mb-3">
-                    <div>
-                      <h4 className="font-semibold text-deep-plum">{review.user}</h4>
-                      <div className="flex items-center gap-1 mt-1">
-                        {[...Array(5)].map((_, i) => (
-                          <Star 
-                            key={i} 
-                            className={`h-4 w-4 ${i < review.rating ? 'fill-butter-yellow text-butter-yellow' : 'text-gray-300'}`} 
-                          />
-                        ))}
-                      </div>
-                    </div>
-                    <span className="text-sm text-gray-500">{review.date}</span>
-                  </div>
-                  <p className="text-gray-600">{review.comment}</p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div> */}
 
-        {/* Related Products */}
+
         <div className="mt-16">
           <h2 className="text-2xl font-bold text-deep-plum mb-8">You Might Also Like</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {relatedProducts.map((relatedProduct) => (
-              <Card key={relatedProduct.id} className="overflow-hidden hover:shadow-lg transition-shadow cursor-pointer">
+              <Card key={relatedProduct.id} className="overflow-hidden hover:shadow-lg transition-shadow cursor-pointer border border-peach-pink">
                 <img 
                     src={relatedProduct.image} 
                     alt={relatedProduct.name}
-                    className="w-full h-80 object-cover"
+                    className="w-full h-80 object-cover p-5 rounded-2xl"
                   />
                 <CardContent className="p-4">
                   

@@ -3,7 +3,7 @@ import React,  { Suspense } from "react";
 
 export default function Page() {
   return (
-    <Suspense fallback={<div>Loading...</div>}>
+    <Suspense fallback={<div className="text-hot-pink">Loading...</div>}>
       <Shop />
     </Suspense>
   );

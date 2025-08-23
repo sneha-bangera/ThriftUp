@@ -1,7 +1,7 @@
 'use client';
-
 import React from 'react';
 import { ArrowRight } from 'lucide-react';
+import Link from 'next/link';
 
 const offers = [
   {
@@ -24,7 +24,6 @@ const offers = [
   },
 ];
 
-// ===== Card Component =====
 const Card = ({ className = '', children, ...props }) => {
   return (
     <div
@@ -35,8 +34,6 @@ const Card = ({ className = '', children, ...props }) => {
     </div>
   );
 };
-
-// ===== CardContent Component =====
 const CardContent = ({ className = '', children, ...props }) => {
   return (
     <div className={`p-0 ${className}`} {...props}>
@@ -44,8 +41,6 @@ const CardContent = ({ className = '', children, ...props }) => {
     </div>
   );
 };
-
-// ===== Badge Component =====
 const Badge = ({ className = '', children, ...props }) => {
   return (
     <span
@@ -56,8 +51,6 @@ const Badge = ({ className = '', children, ...props }) => {
     </span>
   );
 };
-
-// ===== Button Component =====
 const Button = ({ className = '', children, ...props }) => {
   return (
     <button
@@ -69,7 +62,6 @@ const Button = ({ className = '', children, ...props }) => {
   );
 };
 
-// ===== Offers Section =====
 const Offers = () => {
   return (
     <section className="py-20 bg-off-white">
@@ -79,6 +71,7 @@ const Offers = () => {
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {offers.map((offer) => (
+            <Link href="/shop" key={offer.title}>
             <Card key={offer.title}>
               <div className="transition-colors duration-300 group-hover:bg-cotton-candy-gradient">
                 <CardContent>
@@ -104,6 +97,7 @@ const Offers = () => {
                 </CardContent>
               </div>
             </Card>
+            </Link>
           ))}
         </div>
       </div>

@@ -9,7 +9,7 @@ import FakeRazorpayModal from '@/components/FakeRazorpayModal';
 
 const Dashboard = () => {
 
-  const { data: session, status } = useSession(); // ✅ declared first
+  const { data: session, status } = useSession(); 
   const router = useRouter();
 
 
@@ -128,7 +128,6 @@ const Dashboard = () => {
 
   const handleFakeCheckout = async () => {
   try {
-    // Optional: Save to DB
     await fetch("/api/fake-checkout", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -136,8 +135,7 @@ const Dashboard = () => {
     });
 
     alert("Payment Successful! Your order has been placed.");
-    // Optionally, clear cart
-    fetchCart(); // Refresh cart
+    fetchCart(); 
   } catch (err) {
     console.error("Fake checkout failed:", err);
     alert("Something went wrong during checkout.");
@@ -156,14 +154,14 @@ const handleSuccessPayment = async () => {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         items: cartItems,
-        userEmail: user.email,  // ✅ Use this
+        userEmail: user.email,  
       }),
     });
 
     const data = await res.json();
     if (data.success) {
       alert("Payment Successful! Order placed.");
-      fetchCart(); // clear cart
+      fetchCart();
     } else {
       alert("Something went wrong during order save.");
     }
@@ -177,19 +175,19 @@ const handleSuccessPayment = async () => {
   return (
     <div className="p-10 space-y-12">
       <h1 className="text-2xl font-bold text-deep-plum">Dashboard</h1>
-      <div className="bg-white shadow-md border-b border-gray-200 p-6 w-full flex justify-between items-center">         
-        <div className="flex items-center gap-4">
-         <img
-          // src={user?.image || "https://i.pravatar.cc/150?img=47"}
-          src={user?.image || "https://locator.apa.org/resource/1668705141000/PsycLocator/img/profile-default.png"}
-          alt={user?.name}
-          className="w-16 h-16 rounded-full object-cover border-2 border-hot-pink"/>
-          <div>
-            <h2 className="text-2xl font-semibold">{user?.name}</h2>
-            <p className="text-sm text-gray-600">{user?.email}</p>
+      <div className="bg-white shadow-md border-b border-gray-200 p-4 md:p-6 w-full flex justify-between items-center flex-nowrap">
+        <div className="flex items-center gap-3 md:gap-4 min-w-0">
+          <img
+            src={user?.image || "https://locator.apa.org/resource/1668705141000/PsycLocator/img/profile-default.png"}
+            alt={user?.name}
+            className="w-10 h-10 md:w-16 md:h-16 rounded-full object-cover border-2 border-hot-pink"
+          />
+          <div className="min-w-0">
+            <h2 className="text-base md:text-2xl font-semibold truncate">{user?.name}</h2>
+            <p className="text-xs md:text-sm text-gray-600 truncate">{user?.email}</p>
           </div>
         </div>
-        <div className="flex gap-4">
+        <div>
           <button className="btn-secondary" onClick={() => signOut({ callbackUrl: "/" })}>
             Logout
           </button>
@@ -197,7 +195,6 @@ const handleSuccessPayment = async () => {
       </div>
 
 
-      {/* Cart Section */}
       <div>
         <h2 className="text-xl font-semibold mb-4">Cart</h2>
         {cartItems.length === 0 ? (
