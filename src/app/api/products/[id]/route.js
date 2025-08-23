@@ -1,4 +1,3 @@
-// app/api/products/[id]/route.js
 
 import { NextResponse } from "next/server";
 import connect from "@/utils/db";
@@ -7,7 +6,6 @@ import { getServerSession } from "next-auth";
 import { authOptions } from "../../auth/[...nextauth]/route";
 
 
-// GET /api/products/:id
 export async function GET(req, { params }) {
   try {
     await connect();
@@ -36,7 +34,6 @@ export async function DELETE(req, { params }) {
 
     const productId = params.id;
 
-    // Optional: Only allow the user to delete their own product
     const product = await Product.findById(productId);
     if (!product || product.userEmail !== session.user.email) {
       return NextResponse.json({ success: false, message: "Unauthorized to delete this product" }, { status: 403 });

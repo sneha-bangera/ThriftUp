@@ -5,7 +5,6 @@ import { useRouter } from "next/navigation";
 import { ArrowLeft, ImagePlus, Hash, Type, MessageSquare, X } from "lucide-react";
 import { useSession } from "next-auth/react";
 
-// ===== Badge Component =====
 const Badge = ({ className = '', children, ...props }) => {
   return (
     <span
@@ -17,7 +16,6 @@ const Badge = ({ className = '', children, ...props }) => {
   );
 };
 
-// ===== Button Component =====
 const Button = ({ className = '', children, ...props }) => {
   return (
     <button
@@ -50,7 +48,6 @@ const CardContent = React.forwardRef(({ className, ...props }, ref) => (
 CardContent.displayName = "CardContent"
 
 
-// Inline toast hook
 function useToast() {
   const timeoutRef = useRef(null);
 
@@ -134,26 +131,7 @@ const handleSubmit = async (e) => {
 };
 
 
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault();
-  //   if (!title.trim() || !content.trim()) {
-  //     toast({
-  //       title: "Missing Information",
-  //       description: "Please fill in both title and content.",
-  //       variant: "destructive",
-  //     });
-  //     return;
-  //   }
-
-  //   setIsSubmitting(true);
-  //   setTimeout(() => {
-  //     toast({
-  //       title: "Post Created!",
-  //       description: "Your discussion has been posted successfully.",
-  //     });
-  //     router.push("/community");
-  //   }, 1000);
-  // };
+  
 
   return (
     <div className="min-h-screen bg-off-white">
@@ -253,7 +231,6 @@ const handleSubmit = async (e) => {
                   </div>
                   )}
 
-                {/* Custom Tag Input */}
                 <div className="flex gap-2">
                   
                   <input
@@ -301,19 +278,7 @@ const handleSubmit = async (e) => {
                 <p className="text-xs text-deep-plum/60">You can add up to 5 tags</p>
               </div>
 
-              {/* Image Upload */}
-              {/* <div className="space-y-2">
-                <label className="flex items-center gap-2 text-deep-plum font-medium">
-                  <ImagePlus className="h-4 w-4" />
-                  Add Images (Coming Soon)
-                </label>
-                <div className="border-2 border-dashed border-peach-pink rounded-lg p-8 text-center bg-peach-pink/5">
-                  <ImagePlus className="h-8 w-8 mx-auto text-deep-plum/40 mb-2" />
-                  <p className="text-deep-plum/60 text-sm">Image upload feature coming soon!</p>
-                </div>
-              </div> */}
-
-              {/* Submit Buttons */}
+              
               <div className="flex gap-4 pt-6 border-t border-peach-pink">
                 <Button
                   type="button"
@@ -335,7 +300,6 @@ const handleSubmit = async (e) => {
             </Card>
         </form>
 
-        {/* Tips Card */}
         <Card className="mt-8 bg-off-white border-peach-pink border-2 shadow-lg">
           <CardHeader>
             <CardTitle className="text-lg text-deep-plum">💡 Tips for Great Discussions</CardTitle>

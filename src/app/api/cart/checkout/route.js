@@ -1,4 +1,3 @@
-// app/api/cart/checkout/route.js
 import { NextResponse } from 'next/server';
 import { getServerSession } from 'next-auth';
 import { authOptions } from '../../auth/[...nextauth]/route';
@@ -12,7 +11,6 @@ export async function POST(req) {
     const session = await getServerSession(authOptions);
     if (!session) return NextResponse.json({ success: false, message: 'Unauthorized' }, { status: 401 });
 
-    // Get user's cart
     const userEmail = session.user.email;
     const userCart = await CartItem.find({ userEmail });
 
@@ -30,7 +28,6 @@ export async function POST(req) {
     await order.save();
 
     
-    // Clear cart
     await CartItem.deleteMany({ userEmail });
 
     return NextResponse.json({ success: true, message: 'Checkout complete and cart cleared!' });

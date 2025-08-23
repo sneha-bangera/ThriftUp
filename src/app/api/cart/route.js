@@ -14,7 +14,6 @@ export async function POST(req) {
     const body = await req.json();
     const { productId, name, price, image, category, size } = body;
 
-    // Check if item already exists in cart for this user
     const existingItem = await CartItem.findOne({
       productId,
       userEmail: session.user.email,

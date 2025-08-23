@@ -1,9 +1,6 @@
 import connect from "@/utils/db";
 import Product from "@/models/Product";
 import { NextResponse } from "next/server";
-// import fs from "fs";
-// import { writeFile } from "fs/promises";
-// import path from "path";
 import { v2 as cloudinary } from "cloudinary";
 
 cloudinary.config({
@@ -15,11 +12,10 @@ cloudinary.config({
 
 export const config = {
   api: {
-    bodyParser: false, // Required for FormData
+    bodyParser: false, 
   },
 };
 
-//get products
 export async function GET(req) {
   try {
     await connect();
@@ -42,7 +38,6 @@ export async function GET(req) {
 
 
 
-// add product n cloudinary
 export async function POST(req) {
   try {
     await connect();
@@ -62,33 +57,18 @@ export async function POST(req) {
       return NextResponse.json({ error: "No image uploaded." }, { status: 400 });
     }
 
-    // Prepare uploads dir
-    // const uploadDir = path.join(process.cwd(), "public", "uploads");
-    // if (!fs.existsSync(uploadDir)) {
-    //   fs.mkdirSync(uploadDir, { recursive: true });
-    // }
 
-    // const buffer = Buffer.from(await file.arrayBuffer());
-    // const filename = Date.now() + "-" + file.name.replaceAll(" ", "_");
-    // const filepath = path.join(uploadDir, filename);
-    // await writeFile(filepath, buffer);
-
-    // const imageUrl = `/uploads/${filename}`;
-
-
-    // 📤 Upload to Cloudinary
     const buffer = Buffer.from(await file.arrayBuffer());
     const mime = file.type;
     const encoding = "base64";
     const base64Data = `data:${mime};${encoding},${buffer.toString("base64")}`;
 
     const uploadResult = await cloudinary.uploader.upload(base64Data, {
-      folder: "thriftup-products", // optional folder in Cloudinary
+      folder: "thriftup-products", 
     });
 
     const imageUrl = uploadResult.secure_url;
 
-    //create new product
     const newProduct = await Product.create({
       name,
       price,

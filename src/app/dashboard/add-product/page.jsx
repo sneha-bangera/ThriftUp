@@ -57,7 +57,7 @@ const handleSubmit = async (e) => {
   payload.append("category", formData.category);
   payload.append("description", formData.description);
   payload.append("size", formData.size);
-  payload.append("userEmail", session?.user?.email || 'test@example.com'); // Ensure you have session access
+  payload.append("userEmail", session?.user?.email || 'test@example.com');
 
   try {
     const res = await fetch("/api/products", {
@@ -68,13 +68,13 @@ const handleSubmit = async (e) => {
     const data = await res.json();
     if (res.ok) {
       alert("Product submitted successfully!");
-      router.push("/dashboard"); // Optional redirect
+      router.push("/dashboard"); 
     } else {
       console.error(data.error || "Something went wrong.");
       alert("Product submission failed.");
     }
   } catch (err) {
-  console.error("Submit error:", err?.message || err); // log more detail
+  console.error("Submit error:", err?.message || err);
   alert("Error submitting product.");
 }
 };

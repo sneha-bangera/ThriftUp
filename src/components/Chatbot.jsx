@@ -55,7 +55,6 @@ export default function Chatbot() {
             </button>
           </div>
 
-          {/* Messages */}
           <div className="flex-1 overflow-y-auto px-3 py-3 text-sm space-y-3 bg-gray-50">
             {messages.map((msg, idx) => (
               <div
@@ -81,7 +80,6 @@ export default function Chatbot() {
             )}
           </div>
 
-          {/* Input Box */}
           <div className="p-3 border-t flex gap-2 bg-white rounded-b-2xl">
             <input
               value={input}

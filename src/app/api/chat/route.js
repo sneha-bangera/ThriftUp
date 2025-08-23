@@ -41,7 +41,7 @@ export async function POST(req) {
             { parts: [{ text: `Keep it short (max 3 sentences). ${message}` }] },
           ],
           generationConfig: {
-            maxOutputTokens: 80, // 🔥 keeps replies short
+            maxOutputTokens: 80,
           },
         }),
       }
